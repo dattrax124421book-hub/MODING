@@ -151,17 +151,18 @@ object ZipalignUtils {
     }
 
     private fun toDosTime(time: Long): Long {
-        val d = java.util.Date(time)
-        val year = d.year + 1900
+        val cal = java.util.Calendar.getInstance()
+        cal.timeInMillis = time
+        val year = cal.get(java.util.Calendar.YEAR)
         return if (year < 1980) {
             (1 shl 21) or (1 shl 16)
         } else {
             (((year - 1980) shl 25) or
-                    ((d.month + 1) shl 21) or
-                    (d.date shl 16) or
-                    (d.hours shl 11) or
-                    (d.minutes shl 5) or
-                    (d.seconds shr 1)).toLong()
+                    ((cal.get(java.util.Calendar.MONTH) + 1) shl 21) or
+                    (cal.get(java.util.Calendar.DAY_OF_MONTH) shl 16) or
+                    (cal.get(java.util.Calendar.HOUR_OF_DAY) shl 11) or
+                    (cal.get(java.util.Calendar.MINUTE) shl 5) or
+                    (cal.get(java.util.Calendar.SECOND) shr 1)).toLong()
         }
     }
 }

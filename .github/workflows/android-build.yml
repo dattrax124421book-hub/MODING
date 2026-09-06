@@ -15,6 +15,9 @@ jobs:
   build:
     name: Build & Test Android APK
     runs-on: ubuntu-latest
+    env:
+      JAVA_OPTS: "-Djava.awt.headless=true"
+      _JAVA_OPTIONS: "-Djava.awt.headless=true"
 
     steps:
       - name: Checkout Repository

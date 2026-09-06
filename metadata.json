@@ -1,0 +1,6 @@
+{
+  "name": "APK Mod Injector",
+  "description": "On-device APK mod patcher, alignment, and signer tool for Android",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
